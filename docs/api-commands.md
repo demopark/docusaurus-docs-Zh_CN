@@ -2,8 +2,8 @@
 
 Docusaurus提供了一组脚本来帮助您生成，运行和部署您的网站。 当使用 Yarn 或 npm 时，可以用 `run` 命令调用这些脚本。 一些常见的命令是：
 
-* [`yarn run start`](api-commands.md#docusaurus-start-port-number): 从本地服务器构建和运行网站
-* [`yarn run examples`](api-commands.md#docusaurus-examples): 创建示例配置文件
+* [`yarn run start`](api-commands.md#docusaurus-start---port-number): 从本地服务器构建和运行网站
+* [`yarn run examples`](api-commands.md#docusaurus-examples-feature): 创建示例配置文件
 
 
 ## 从命令行运行
@@ -48,7 +48,7 @@ Docusaurus 提供了一些默认映射，允许您按照 node 惯例运行命令
 * [docusaurus-examples [feature]](#docusaurus-examples-feature)
 * [docusaurus-publish](#docusaurus-publish)
 * [docusaurus-rename-version <currentVersion> <newVersion>](#docusaurus-rename-version-currentversion-newversion)
-* [docusaurus-start [--port <number>]](#docusaurus-start-port-number)
+* [docusaurus-start [--port <number>]](#docusaurus-start---port-number)
 * [docusaurus-version <version>](#docusaurus-version-version)
 * [docusaurus-write-translations](#docusaurus-write-translations)
 
@@ -61,7 +61,7 @@ Docusaurus 提供了一些默认映射，允许您按照 node 惯例运行命令
 
 生成静态网站，必要时应用翻译。 在部署之前用于构建网站。
 
-也可以参考 [`docusaurus-start`](api-commands.md#docusaurus-start-port-number).
+也可以参考 [`docusaurus-start`](api-commands.md#docusaurus-start---port-number).
 
 ---
 

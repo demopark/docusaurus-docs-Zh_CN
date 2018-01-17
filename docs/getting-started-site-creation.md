@@ -1,15 +1,12 @@
----
-id: site-creation
-title: Creating your site
----
+# 创建网站
 
-Docusaurus was created to hopefully make it super simple for you to create a site and documentation for your open source project.
+Docusaurus 的创造，是希望能够让你为开源项目创建一个网站和文档变得非常简单。
 
-After [installation](getting-started-installation.md) and [preparation](getting-started-preparation.md), much of the work to create a basic site for your docs is already complete.
+在 [安装](getting-started-installation.md) 和 [准备](getting-started-preparation.md) 之后，为文档创建基本网站的许多工作已经完成。
 
-## Site Structure
+## 网站结构
 
-Your site structure looks like the following:
+你的网站结构看起来像下面这样：
 
 ```bash
 root-of-repo
@@ -26,38 +23,38 @@ root-of-repo
 │   └── static
 ```
 
-> This assumes that you removed the example `.md` files that were installed with the [initialization](getting-started-installation.md) script.
+> 这里假设您已经删除了与 [初始化](getting-started-installation.md) 脚本一起安装的 `.md` 示例文件。
 
-All of your documentation files should be placed inside the `docs` folder as markdown `.md` files. Any blog posts should be inside the `blog` folder.
+所有的文档文件都应该作为 `.md` 文件放在 `docs` 文件夹中。 任何博客文章都应该在 `blog` 文件夹中。
 
-> The blog posts must be formatted as yyyy-mm-dd-your-file-name.md
+> 博客帖子的格式必须为 yyyy-mm-dd-your-file-name.md
 
-## Create Your Basic Site
+## 创建您的基本网站
 
-To create a fully functional site, you only need to do a few steps:
+要创建一个功能齐全的网站，您只需要执行几个步骤：
 
-1. Add your documentation to the `/docs` folder as `.md` files, ensuring you have the proper [header](api-doc-markdown.md#documents) in each file. The simplest header would be the following, where `id` is the link name (e.g., `docs/intro.html`) and the `title`, is, of course, the title of the browser page.
+1. 将您的文档以 `.md` 文件的形式添加到 `/docs` 文件夹中，并确保每个文件都有正确的[header](api-doc-markdown.md#文档)。 最简单的标题如下，其中 `id` 是链接名称（例如 `docs/intro.html`），`title` 当然是浏览器页面的标题。
 
     ```
     ---
     id: intro
-    title: Getting Started
+    title: 入门
     ---
 
-    My *new content* here..
+    这是我的 *新文件内容* ...
     ```
 
-1. Add zero or more docs to the [`sidebars.json`](guides-navigation.md#adding-docs-to-a-sidebar) file so that your documentation is rendered in a sidebar, if you choose them to be.
+1. 将零个或多个文档添加到 [`sidebars.json`](guides-navigation.md#添加文档到侧边栏) 文件，以便您的文档在侧边栏中呈现，如果您想要显示它们。
 
-  > If you do not add your documentation to the `sidebars.json` file, the docs will be rendered, but they can only be linked to from other documentation and visited with the known URL.
+  > 如果您不将文档添加到 `sidebars.json` 文件中，那么文档依然被渲染，但只能从其他文档链接到该文档，并使用已知的URL进行访问。
 
-1. Modify the `website/siteConfig.js` file to [configure your site](api-site-config.md), following the comments included in the [docs](api-site-config.md) and the `website/siteConfig.js` to guide you.
-1. Create any [custom pages](guides-custom-pages.md#customizing-your-site-footer) and/or [customize](guides-custom-pages.md#customizing-your-site-footer) the `website/core/Footer.js` file that provides the footer for your site.
-1. Place assets, such as images, in the `website/static/` folder.
-1. Run the site to see the results of your changes.  
+1. 修改 `website/siteConfig.js` 文件来[配置网站](api-site-config.md)，按照 `website/siteConfig.js` 的 [文档](api-site-config.md) 指引。
+1. 创建任何的 [自定义页面](guides-custom-pages.md#自定义网站页脚) 和/或 [自定义](guides-custom-pages.md#自定义网站页脚) `website/core/Footer.js` 文件来为你的网站提供页脚。
+1. 将网站资源（如图像）放在 `website/static/` 文件夹中。
+1. 运行该网站以查看更改的结果。 
 
   ```
   cd website
-  yarn run start # or `npm run start`
-  # navigate to http://localhost:3000
+  yarn run start # 或 `npm run start`
+  # 浏览 http://localhost:3000
   ```

@@ -14,7 +14,7 @@ Docusaurus 作为 [npm](https://www.npmjs.com) 上的 [`docusaurus` 包](https:/
 
 我们还发布了 [`docusaurus-init` 包](https://www.npmjs.com/package/docusaurus-init) ，来使 Docusaurus 的 [入门](https://docusaurus.io/docs/en/installation.html) 更加简单。
 
-##文档目录
+## 文档目录
 * 入门
   * [安装](docs/getting-started-installation.md)
   * [准备网站](docs/getting-started-preparation.md)

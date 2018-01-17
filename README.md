@@ -24,7 +24,7 @@ Docusaurus 作为 [npm](https://www.npmjs.com) 上的 [`docusaurus` 包](https:/
   * [添加博客](docs/guides-blog.md)
   * [自定义页面](docs/guides-custom-pages.md)
   * [启用搜索](docs/guides-search.md)
-  * [导航和边栏](docs/guides-navigation.md)
+  * [导航和侧边栏](docs/guides-navigation.md)
   * [翻译 & 本地化](docs/guides-translation.md)
   * [版本控制](docs/guides-versioning.md)
 * API

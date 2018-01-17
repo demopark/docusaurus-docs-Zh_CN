@@ -1,15 +1,12 @@
----
-id: installation
-title: Installation
----
+# 安装
 
-Docusaurus was designed from the ground up to be easily installed and used to get your website up an running quickly. To install Docusaurus, we have created an easy script that will get all of the infrastructure setup for you:
+Docusaurus 是从全新设计的，易于安装和使用，让您的网站能够快速运行。 要安装 Docusaurus，我们已经创建了一个简单的脚本，可以为您提供所有的基础架构设置：
 
-1. Go into the root of your GitHub repo directory where you will be creating the docs.
-1. `yarn global add docusaurus-init` or `npm install --global docusaurus-init`
-1. `docusaurus-init`
+1. 进入你将要创建文档的 GitHub repo 目录的根目录。
+2. `yarn global add docusaurus-init` 或 `npm install --global docusaurus-init`
+3. `docusaurus-init`
 
-Along with previously existing files and directories, your root directory will now contain a structure similar to:
+除了以前存在的文件和目录，您的根目录现在将包含类似于以下的结构：
 
 ```bash
 root-of-repo
@@ -33,4 +30,4 @@ root-of-repo
 │   └── static
 ```
 
-> If you do not want to install the init script globally, you can install it locally and then run it via `npx docusaurus-init` or from the `node_modules` directory that is created via `./node_modules/.bin/docusaurus-init`. You may want to remove the created `package.json` file and `node_modules` directory after you run the script.
+> 如果您不想全局安装 init 脚本，则可以在本地安装，然后通过 `npx docusaurus-init` 或通过 `./node_modules/.bin/docusaurus-init` 创建的 `node_modules` 目录运行。 运行脚本后，您可能需要删除已创建的 `package.json` 文件和 `node_modules` 目录。

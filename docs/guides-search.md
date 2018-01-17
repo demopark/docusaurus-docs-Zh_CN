@@ -1,13 +1,10 @@
----
-id: search
-title: Enabling Search
----
+# 启用搜索
 
-Docusaurus supports search using [Algolia DocSearch](https://community.algolia.com/docsearch/). Once you have set up your site, [enter your site information](https://community.algolia.com/docsearch/) to have Algolia crawl your website's documentation pages. Algolia will then send you an API key and index name for your site.
+Docusaurus 支持使用 [Algolia DocSearch](https://community.algolia.com/docsearch/) 进行搜索。 一旦你建立了你的网站，[输入你的网站信息](https://community.algolia.com/docsearch/) 来让 Algolia 抓取你网站的文档页面。 Algolia 会向您发送您的网站的 API 密钥和索引名称。
 
-### Enabling the Search Bar
+### 启用搜索栏
 
-Enter your search-only API key and index name into `siteConfig.js` in the `algolia` section to enable search for your site.
+在 `algolia` 部分的 `siteConfig.js` 中输入您的搜索 API 密钥和索引名称，以启用您的网站搜索。
 
 ```js
 const siteConfig = {
@@ -20,9 +17,9 @@ const siteConfig = {
 }
 ```
 
-### Extra Search Options
+### 额外搜索参数
 
-You can also specify extra [search options used by Algolia](https://community.algolia.com/docsearch/documentation/) by using an `algoliaOptions` field in `algolia`. This may be useful if you want to provide different search results for the different versions or languages of your docs. Any occurrences of "VERSION" or "LANGUAGE" will be replaced by the version or language of the current page, respectively. More details about search options can be [found here](https://www.algolia.com/doc/api-reference/api-parameters/#overview).
+您还可以在 `algolia` 中使用`algoliaOptions`字段指定额外的 [Algolia 使用的搜索参数](https://community.algolia.com/docsearch/documentation/)。 如果您想为文档的不同版本或语言提供不同的搜索结果，这可能会很有用。 任何 "VERSION" 或 "LANGUAGE" 都将被当前页面的版本或语言所取代。 关于搜索选项的更多细节可以在[这里找到](https://www.algolia.com/doc/api-reference/api-parameters/#overview)。
 
 ```js
 const siteConfig = {
@@ -37,11 +34,11 @@ const siteConfig = {
 }
 ```
 
-### Controlling the Location of the Search Bar
+### 控制搜索栏位置
 
-By default, the search bar will be the rightmost element in the top navigation bar.
+默认情况下，搜索栏将是顶部导航栏中最右边的元素。
 
-If you want to change the default location, add the `searchBar` flag in the `headerLinks` field of `siteConfig.js` in your desired location. For example, you may want the search bar in between your internal and external links.
+如果您想更改默认位置，请在 `siteConfig.js` 的 `headerLinks` 字段中将 `searchBar` 标志添加到您想要的位置。 例如，您可能需要在内部和外部链接之间的搜索栏。
 
 ```js
 const siteConfig = {
@@ -57,8 +54,8 @@ const siteConfig = {
 }
 ```
 
-### Disabling the Search Bar
+### 禁用搜索栏
 
-To disable the search bar, comment out (recommended) or delete the `algolia` section in the `siteConfig.js` file.
+要禁用搜索栏，请注释掉（推荐）或删除 `siteConfig.js` 文件中的 `algolia` 部分。
 
-Also, if you have customized the location of the search bar in `headerLinks`, set `search: false`.
+另外，如果您在 `headerLinks` 中自定义了搜索栏的位置，请设置 `search: false`。

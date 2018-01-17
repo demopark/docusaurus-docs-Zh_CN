@@ -1,13 +1,10 @@
----
-id: blog
-title: Adding a Blog
----
+# 添加博客
 
-## Initial Setup
+## 初始设置
 
-To setup your site's blog, start by creating a `blog` folder within your repo's `website` directory.
+要设置您的网站的博客，先在您的仓库的网站目录中创建一个 `blog` 文件夹。
 
-Then, add a header link to your blog within `siteConfig.js`:
+然后，在 `siteConfig.js` 中添加一个 header link 到你的博客：
 
 ```
 headerLinks: [
@@ -18,11 +15,11 @@ headerLinks: [
 ```
 
 
-## Adding Posts
+## 添加博文
 
-To publish in the blog, create a file within the blog folder with a formatted name of `YYYY-MM-DD-My-Blog-Post-Title.md`. The post date is extracted from the file name.
+要在博客中发布，请在博客文件夹中创建一个格式为 `YYYY-MM-DD-My-Blog-Post-Title.md` 的文件。 发布日期是从文件名中提取的。
 
-For example, at `website/blog/2017-08-18-Introducing-Docusaurus.md`:
+例如，在 `website/blog/2017-08-18-Introducing-Docusaurus.md`:
 
 ```
 ---
@@ -32,48 +29,48 @@ authorFBID: 503283835
 title: Introducing Docusaurus
 ---
 
-Lorem Ipusm..
+博文内容..
 ```
 
 
-## Header Options
+## Header 参数
 
-The only required field is `title`; however, we provide options to add author information to your blog post as well.
+唯一必需的字段是`title`; 不过，我们也提供了将作者信息添加到博客文章的参数。
 
-- `author` - The text label of the author byline.
-- `authorURL` - The url associated with the author. This could be a Twitter, GitHub, Facebook account, etc.
-- `authorFBID` - The Facebook ID that is used to extract the profile picture.
-- `title` - The blog post title.
+- `author` - 作者署名的文本标签。
+- `authorURL` - 与作者相关的网址。 这可能是一个Twitter，GitHub，Facebook帐户等。
+- `authorFBID` - 用于提取个人资料图片的 Facebook ID。
+- `title` - 博客文章标题。
 
 
-## Summary Truncation
+## 摘要截断
 
-Use the `<!--truncate-->` marker in your blog post to represent what will be shown as the summary when viewing all blog published blog posts. Anything above `<!--truncate-->` will be part of the summary. For example:
+使用博客文章中的  `<!--truncate-->` 标记来表示在查看博客发布的所有博客文章时将显示的摘要。 在 `<!--truncate-->` 之上的任何内容都将成为摘要的一部分。 例如：
 
 ```
 ---
-title: Truncation Exmaple
+title: 截断示例
 ---
 
-All this will be part of the blog post summary.
+所有这些将成为博客文章摘要的一部分。
 
-Even this.
+就到这里。
 
 <!--truncate-->
 
-But anything from here on down will not be.
+但是从此以后的任何内容都不会是。
 
-Not this.
+不是这里。
 
-Or this.
+也不是这里。
 ```
 
-## RSS Feed
+## RSS 订阅
 
-Docusaurus provides a simple RSS feed for your blog posts. Both RSS and Atom feed formats are supported. This data is automatically to your website page's HTML <HEAD> tag.
+Docusaurus 为您的博客文章提供了一个简单的 RSS 源。 支持 RSS 和 Atom 订阅格式。 这些数据会自动添加到您的网站页面的 HTML <HEAD> 标签中。
 
-A summary of the post's text is provided in the RSS feed up to the `<!--truncate-->`. If no `<!--truncate-->` tag is found, then all text up 250 characters are used.
+RSS 订阅中提供了文章的摘要，直到 `<!--truncate-->` 结束。 如果没有找到`<!--truncate-->` 标签，那么所有文本最多可以使用250个字符。
 
-## Social Buttons
+## 社交按钮
 
-If you want Facebook and/or Twitter social buttons at the bottom of your blog posts, set the `facebookAppId` and/or `twitter` [site configuration](api-site-config.md) options in `siteConfig.js`.
+如果您希望在博客文章的底部添加 Facebook 和/或 Twitter 社交按钮，请在 `siteConfig.js` 中设置 `facebookAppId` 和/或 `twitter` [网站配置](api-site-config.md) 参数。

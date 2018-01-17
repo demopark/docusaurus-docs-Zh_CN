@@ -16,7 +16,7 @@ Docusaurus 作为 [npm](https://www.npmjs.com) 上的 [`docusaurus` 包](https:/
 
 ## 文档目录
 * 入门
-  * [安装](docs/getting-started-installation.md)
+  * [安装指南](docs/getting-started-installation.md)
   * [准备网站](docs/getting-started-preparation.md)
   * [创建网站](docs/getting-started-site-creation.md)
   * [发布网站](docs/getting-started-publishing.md)

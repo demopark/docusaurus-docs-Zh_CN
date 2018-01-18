@@ -1,32 +1,28 @@
----
-id: api-pages
-title: Pages and Styles
----
+# 页面和样式
 
-Docusaurus provides support for writing pages as React components inside the `website/pages` folder which will share the same header, footer, and styles as the rest of the site.
+Docusaurus 支持在 `website/pages` 文件夹中将页面编写为 React 组件，该文件夹将与网站的其他部分共享相同的页眉，页脚和样式。
 
-## Urls for Pages
+## 页面的 URL
 
-Any `.js` files in `website/pages` will be rendered to static html using the path of the file after "pages". Files in `website/pages/en` will also get copied out into `pages` and will OVERRIDE any files of the same name in `pages`. For example, the page for the `website/pages/en/help.js` file will be found at the url `${baseUrl}en/help.js` as well as the url `${baseUrl}help.js`, where `${baseUrl}` is the `baseUrl` field set in your [siteConfig.js file](api-site-config.md).
+ `website/pages` 中的任何 `.js` 文件将使用 "pages" 之后的文件路径呈现为静态 html。 `website/pages/en` 中的文件也将被复制到 `pages` 中，并将覆盖 `pages` 中的任何同名文件。 例如，`website/pages/en/help.js`  文件的页面可以在 URL `${baseUrl}en/help.js` 以及 URL `${baseUrl}help.js` 中找到。其中 `${baseUrl}` 是在 [siteConfig.js 文件](api-site-config.md)中设置的 `baseUrl` 字段。
 
+## 页面请求路径
 
-## Page Require Paths
+Docusaurus 提供了一些有用的 React 组件供用户编写他们自己的页面，可以在 `CompLibrary` 模块中找到。这个模块是在 `node_modules/docusaurus` 中作为 Docusaurus 的一部分提供的，所以为了访问它，在渲染为静态 html 时，`pages` 文件夹中的页面被临时复制到 `node_modules/docusaurus` 中。如示例文件所示，这意味着位于 `pages/en/index.js` 的用户页面使用 `"../../core/CompLibrary.js"` 的 require 路径导入提供的组件。
 
-Docusaurus provides a few useful React components for users to write their own pages, found in the `CompLibrary` module. This module is provided as part of Docusaurus in `node_modules/docusaurus`, so to access it, pages in the `pages` folder are temporarily copied into `node_modules/docusaurus` when rendering to static html. As seen in the example files, this means that a user page at `pages/en/index.js` uses a require path to `"../../core/CompLibrary.js"` to import the provided components.
+这对用户意味着如果你想使用 `CompLibrary` 模块，请确保 require 路径设置正确。例如，在 `page/mypage.js` 中的一个页面将使用一个路径 `"../core/CompLibrary.js"`。
 
-What this means to the user is that if you wish to use the `CompLibrary` module, make sure the require path is set correctly. For example, a page at `page/mypage.js` would use a path `"../core/CompLibrary.js"`.
+如果你想在你的网站文件夹中使用你自己的组件，可以使用 `process.cwd()` 来引用 `website` 文件夹来构建 require 路径。例如，如果你添加一个组件到 `website/core/mycomponent.js`，你可以使用 require 路径，`"process.cwd() + /core/mycomponent.js"`。
 
-If you wish to use your own components inside the website folder, use `process.cwd()` which will refer to the `website` folder to construct require paths. For example, if you add a component to `website/core/mycomponent.js`, you can use the require path, `"process.cwd() + /core/mycomponent.js"`.
+## 提供的组件
 
-## Provided Components
-
-Docusaurus provides the following components in `CompLibrary`:
+Docusaurus 在 `CompLibrary` 中提供了以下组件：
 
 ### `CompLibrary.MarkdownBlock`
 
-A React component that parses markdown and renders to HTML.
+一个 React 组件，用于解析 markdown 并呈现给 HTML。
 
-Example:
+示例:
 
 ```jsx
 const MarkdownBlock = CompLibrary.MarkdownBlock;
@@ -36,12 +32,12 @@ const MarkdownBlock = CompLibrary.MarkdownBlock;
 
 ### `CompLibrary.Container`
 
-A React container component using Docusaurus styles. Has optional padding and background color attributes that you can configure.
+使用 Docusaurus 样式的 React 容器组件。 有可选的填充和背景颜色属性，您可以配置。
 
-Padding choices: `all`, `bottom`, `left`, `right`, `top`.  
-Background choices: `dark`, `highlight`, `light`.
+填充选择: `all`, `bottom`, `left`, `right`, `top`.  
+背景选择: `dark`, `highlight`, `light`.
 
-Example:
+示例:
 
 ```jsx
 <Container padding={["bottom", "top"]} background="light">
@@ -51,21 +47,21 @@ Example:
 
 ### `CompLibrary.GridBlock`
 
-A React component to organize text and images.
+一个 React 组件来组织文本和图像。
 
-The `align` attribute determines text alignment. Text alignment defaults to `left` and can be set to `center` or `right`.
+ `align` 属性确定文本对齐。 文本对齐方式默认为 `left`，可以设置为 `center` 或 `right`。
 
-The `layout` attribute determines number of column sections per GridBlock. `layout` defaults to `twoColumn` and can be set to `threeColumn` or `fourColumn` as well.
+`layout` 属性确定每个 GridBlock 的列部分的数量。 `layout ` 默认为 `twoColumn`，也可以设置为 `threeColumn` 或 `fourColumn`。
 
-The `contents` attribute is an array containing the contents of each section of the GridBlock. Each content object can have the following fields:
+`contents` 属性是一个包含 GridBlock 每个部分内容的数组。 每个内容对象可以有以下字段：
 
-- `content` for the text of this section, which is parsed from markdown
-- `image` for the path to an image to display
-- `imageAlign` field for image alignment relative to the text, which defaults to `top` and can be set to `bottom`, `left`, or `right`
-- `title` for the title to display for this section, which is parsed from markdown
-- `imageLink` for a link destination from clicking the image
+- `content` 是从 markdown 解析的章节文本
+- `image` 显示图片的路径
+- `imageAlign` 字段用于图像对齐，相对于文本，默认为 `top` ，可以设置为 `bottom`, `left`, 或 `right`
+- `title` 是从 markdown 解析的要显示的标题
+- `imageLink` 是点击图像链接目的地的
 
-Example:
+示例:
 
 ```
 <GridBlock
@@ -92,19 +88,19 @@ Example:
 />
 ```
 
-More examples of how these components are used can be found in the [generated example files](getting-started-preparation.md) as well as in Docusaurus's own repo for its website set-up.
+在[生成的示例文件](getting-started-preparation.md) 以及 Docusaurus 自己的网站设置 repo 中，可以找到更多关于如何使用这些组件的例子。
 
-## Translating Strings
+## 翻译字符串
 
-When translations are enabled, any pages inside `website/pages/en` will be translated for all enabled languages. Urls for non-English pages will use their language tags as specified in the `languages.js` file. E.g. The url for a French page of `website/pages/en/help.js` would be found at `${baseUrl}fr/help.html`.
+启用翻译后，`website/pages/en` 内的任何页面都将被翻译为所有已启用的语言。 非英文网页的网址将使用 `languages.js` 文件中指定的语言标记。 例如。 法语页面 `website/pages/en/help.js` 的网址可以在 `${baseUrl}fr/help.html` 处找到。
 
-When writing pages that you wish to translate, wrap any strings to be translated inside a `<translate>` tag. e.g.,
+在编写要翻译的页面时，可以将任何要翻译的字符串包装在 `<translate>` 标签中。 例如
 
 ```jsx
 <p><translate>I like translations</translate></p>
 ```
 
-You can also provide an optional description attribute to provide context for translators. e.g,
+您还可以提供一个可选的说明属性，为翻译人员提供上下文。 例如
 
 ```jsx
 <a href="/community">
@@ -112,23 +108,22 @@ You can also provide an optional description attribute to provide context for tr
 </a>
 ```
 
-Add the following require statement as well:
+添加以下require语句：
 
 ```js
 const translate = require("../../server/translate.js").translate;
 ```
 
-Note that this path is valid for files inside `pages/en` and should be adjusted accordingly if files are in different locations, as discussed [above](#page-require-paths).
+请注意，这个路径对 `pages/en` 里面的文件是有效的，如果文件位于不同的位置，就应该相应地进行调整，正如[上面](#页面请求路径)讨论的那样。
 
-## Using Static Assets
+## 使用静态资源
 
-Static assets should be placed into the `website/static` folder. They can be accessed by their paths, excluding "static". For example, if the site's `baseUrl` is "/docusaurus/", an image in `website/static/img/logo.png` is available at `/docusaurus/img/logo.png`.
+静态资源应该放在 `website/static` 文件夹中。 他们可以通过他们的路径访问，不包括 "static"。 例如，如果该网站的 `baseUrl` 为 "/docusaurus/"，`website/static/img/logo.png` 中的图片可用 `/docusaurus/img/logo.png`。
 
+## 样式
 
-## Styles
+您应该使用 `siteConfig` 中的 `colors` 字段来配置您的网站的主要，辅助和代码块颜色，如[这里](api-site-config.md)所示。 你也可以像 `siteConfig` 文档中描述的那样配置其他颜色。
 
-You should configure your site's primary, secondary, and code block colors using the `colors` field in `siteConfig` as specified [here](api-site-config.md). You can also configure other colors in the same way as described in the `siteConfig` doc.
+您可以通过在 `website/static` 文件夹中的任何位置添加自定义样式。 您在 `static` 文件夹中提供的任何 `.css` 文件将连接到 Docusaurus 提供的样式的末尾，允许您根据需要添加或覆盖 Docusaurus 默认样式。
 
-You can provide your own custom styles by adding them anywhere in the `website/static` folder. Any `.css` files you provide in the `static` folder will get concatenated to the end of Docusaurus's provided styles, allowing you to add to or override Docusaurus default styles as you wish.
-
-An easy way to figure out what classes you wish to override or add to is to [start your server locally](api-commands.md) and use your browser's inspect element tool.
+一个简单的方法来找出你想要覆盖或添加到什么类是[本地启动您的服务器](api-commands.md)，并使用您的浏览器的检查元素工具。

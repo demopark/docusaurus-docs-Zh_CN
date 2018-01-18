@@ -100,7 +100,7 @@ customDocsPath: "website-docs"
 
  - `theme` 是语法突出显示时 Highlight.js 使用的主题的名称。 你可以在这里找到[支持的主题列表](https://github.com/isagalaev/highlight.js/tree/master/src/styles)。
  - `version` 指定要使用的特定版本的 Highlight.js。
- - `hljs` 通过将 Highlight.js 的实例传递给此处指定的函数来提供一个换码阀，从而允许注册语法突出显示的其他语言。
+ - `hljs` 通过将 Highlight.js 的实例传递给此处指定的函数来提供一个接口，从而允许注册语法突出显示的其他语言。
  - `defaultLang` 定义一个默认的语言。 如果没有在代码块的顶部指定它，将会使用它。 你可以在这里找到[支持的语言列表](https://github.com/isagalaev/highlight.js/tree/master/src/languages)。
 
 `markdownPlugins` - 一个由 Remarkable 加载的插件数组，Docusaurus 使用的 markdown 解析器和渲染器。 该插件将接收对 Remarkable 实例的引用，允许定义自定义分析和呈现规则。
